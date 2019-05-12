@@ -1,0 +1,6 @@
+[개발 환경 셋팅]
+
+1. material design 적용
+ - 참고 URL : https://material.angular.io/guide/getting-started
+ - npm install --save @angular/material @angular/cdk @angular/animations 설치
+

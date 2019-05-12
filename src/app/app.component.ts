@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kuzal';
+  shouldRun = false;
+
+
+
+  constructor(){
+
+  }
+
+  test(){
+      this.shouldRun = !this.shouldRun;
+  }
+
 }
