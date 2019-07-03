@@ -1,6 +1,32 @@
 [개발 환경 셋팅]
 
 1. material design 적용
+ - 디자인 요소 사용시 필요
  - 참고 URL : https://material.angular.io/guide/getting-started
  - npm install --save @angular/material @angular/cdk @angular/animations 설치
+
+2. 프로젝트 구조 (ver 0.0.1)
+ app
+  ㄴ material
+  ㄴ app.component.css
+  ㄴ app.component.html
+  ㄴ app.component.spec.ts
+  ㄴ app.component.ts
+  ㄴ app.module.ts
+  ㄴ page (화면 컴포넌트)
+   ㄴ main
+   ㄴ member
+    ㄴ detail
+   ㄴ video
+   .
+   .
+   .
+  ㄴ service
+   ㄴ common
+    ㄴ httpService (http 호출)
+    ㄴ utilService (공통 함수)
+   ㄴ api
+    ㄴ memberService (기능별 서비스, 데이터 처리)
+    ㄴ videoService
+
 
