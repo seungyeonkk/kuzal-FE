@@ -1,8 +1,14 @@
 import {RouterModule, Routes} from '@angular/router';
 import {VideoComponent} from './page/video/detail/video/video.component';
+import {NgModule} from '@angular/core';
 
 const appRoutes: Routes = [
-    {path: 'video/detail', component: VideoComponent},
+    {path: 'video/:id', component: VideoComponent},
 ];
 
-export default RouterModule.forRoot(appRoutes)
+@NgModule({
+    imports: [RouterModule.forRoot(appRoutes)],
+    exports: [RouterModule]
+})
+
+export default class AppRoutingModule {}

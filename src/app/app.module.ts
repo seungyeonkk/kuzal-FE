@@ -10,7 +10,7 @@ import MyRoutes from './app.routes';
 import {AppComponent} from './app.component';
 import {VideoFileComponent} from './video-file/video-file.component';
 import {VideoComponent} from './page/video/detail/video/video.component';
-import { FooterComponent } from './page/layout/footer/footer.component';
+import {FooterComponent} from './page/layout/footer/footer.component';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { FooterComponent } from './page/layout/footer/footer.component';
         , HttpClientModule
         , FormsModule
         , ReactiveFormsModule
-        , MyRoutes //routing 설정 파일
+        , MyRoutes
     ],
     providers: [],
     bootstrap: [AppComponent]
