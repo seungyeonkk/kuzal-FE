@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {RestServiceService} from '../rest-service.service';
 import {Observable} from 'rxjs';
-import Video from '../../module/video';
+import Video from '../../model/video';
 
 @Injectable({
     providedIn: 'root'
