@@ -59,9 +59,16 @@ export class VideoFileComponent implements OnInit {
 
     test(): void {
 
-      this.restService.getData('/health').subscribe((response: {}) => {
-          console.log(response);
-      });
+     /* this.restService.getData('/health').subscribe((response: {}) => {
+          onsole.log(response);
+      });*/
+
+
+
+
+      // memberService.getProfile() > restService.getData("/asda")
+         /// e/e//
+
 
 
     }

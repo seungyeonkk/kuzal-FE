@@ -1,0 +1,9 @@
+.header{
+    position: fixed;
+    width: 100%;
+    top:0;
+    overflow: hidden;
+}
+.content{
+    margin-top: 50px;
+}

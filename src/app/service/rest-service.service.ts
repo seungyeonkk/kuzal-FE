@@ -1,78 +1,72 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
+const httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*'})
+};
+const apiUrl = 'http://localhost:8081';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class RestServiceService {
 
-     rootUrl = 'http://localhost:8081';
-     httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type':  'application/json'
-            , 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT'
-        })
-    };
+    constructor(private http: HttpClient) { }
 
+    private handleError(error: HttpErrorResponse) {
 
-
-  constructor(private http: HttpClient) {
-
-  }
+        if (error.error instanceof ErrorEvent) {
+            // A client-side or network error occurred. Handle it accordingly.
+            console.error('An error occurred:', error.error.message);
+        } else {
+            // The backend returned an unsuccessful response code.
+            // The response body may contain clues as to what went wrong,
+            console.error(
+                `Backend returned code ${error.status}, ` +
+                `body was: ${error.error}`);
+        }
+        // return an observable with a user-facing error message
+        return throwError('Something bad happened; please try again later.');
+    }
 
     private extractData(res: Response) {
         const body = res;
         return body || { };
     }
 
-    private handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-
-            // TODO: send the error to remote logging infrastructure
-            console.error(error); // log to console instead
-
-            // TODO: better job of transforming error for user consumption
-            console.log(`${operation} failed: ${error.message}`);
-
-            // Let the app keep running by returning an empty result.
-            return of(result as T);
-        };
-    }
-
-    getData(url): Observable<any> {
-        return this.http.get(this.rootUrl + url).pipe(
-            map(this.extractData));
-    }
-
-
-    postData2(url, params): Observable<any> {
-        return this.http.post<any>(this.rootUrl + url, JSON.stringify(params), this.httpOptions).pipe(
+    getDatas(url: string): Observable<any> {
+        return this.http.get(apiUrl + url, httpOptions).pipe(
             map(this.extractData),
-            catchError(this.handleError<any>('addProduct'))
-        );
+            catchError(this.handleError));
     }
 
-
-    uploadData(url, params): Observable<any> {
-
-        this.httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type':  'multipart/form-data'
-                , 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT'
-            })
-        }
-
-      return this.http.post(this.rootUrl + url, params, this.httpOptions).pipe(
-          map(this.extractData)
-
-        );
+    getData(url: string, id: string): Observable<any> {
+        return this.http.get(apiUrl +  url, httpOptions).pipe(
+            map(this.extractData),
+            catchError(this.handleError));
     }
 
+    postData(url: string, data: any): Observable<any> {
+        return this.http.post(apiUrl + url, data, httpOptions)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
 
+    updateData(url: string, data: any): Observable<any> {
+        return this.http.put(apiUrl + url, data, httpOptions)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
 
-
+    deleteData(url: string): Observable<any> {
+        return this.http.delete(apiUrl + url, httpOptions)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
 
 }

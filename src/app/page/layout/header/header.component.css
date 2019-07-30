@@ -1,0 +1,10 @@
+.header-menus{
+    background-color: #3f51b5;
+}
+.btn-wrapper {
+    width: 100%;
+    text-align: right;
+}
+.btn-wrapper > button{
+    color:#fff;
+}

@@ -11,6 +11,8 @@ import {AppComponent} from './app.component';
 import {VideoFileComponent} from './video-file/video-file.component';
 import {VideoComponent} from './page/video/detail/video/video.component';
 import {FooterComponent} from './page/layout/footer/footer.component';
+import { HeaderComponent } from './page/layout/header/header.component';
+import { MainComponent } from './page/main/main.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {FooterComponent} from './page/layout/footer/footer.component';
         AppComponent,
         VideoFileComponent,
         VideoComponent,
-        FooterComponent
+        FooterComponent,
+        HeaderComponent,
+        MainComponent
     ],
     imports: [
         BrowserModule
