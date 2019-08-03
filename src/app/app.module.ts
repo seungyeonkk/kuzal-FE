@@ -8,19 +8,19 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideoComponent } from './page/video/detail/video/video.component';
 import { RouterModule, Routes } from '@angular/router';
+import { VideoListComponent } from './video-list/video-list.component';
+import { routes } from './appRotuing';
 
-const appRoutes: Routes = [
-    { path: 'video/detail', component: VideoComponent },
-];
 @NgModule({
   declarations: [
     AppComponent,
     VideoFileComponent,
-    VideoComponent
+    VideoComponent,
+    VideoListComponent
   ],
   imports: [
       RouterModule.forRoot(
-          appRoutes
+          routes
       ),
     BrowserModule
     , BrowserAnimationsModule
