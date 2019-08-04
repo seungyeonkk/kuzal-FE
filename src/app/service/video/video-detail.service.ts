@@ -13,6 +13,6 @@ export class VideoDetailService {
     }
 
     getVideo(id: string): Observable<Video> {
-        return this.restService.getData('/video/', id);
+        return this.restService.getData('/video/' + id);
     }
 }
