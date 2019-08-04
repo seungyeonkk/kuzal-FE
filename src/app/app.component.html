@@ -1,9 +1,7 @@
-
-<div style="text-align:center">
-  <h1>
-    커잘 프로젝트
-  </h1>
+<div class="header">
+    <app-header></app-header>
 </div>
+
 <!--<h2>Material Design 적용</h2>-->
 <!--<div class="example-button-row">-->
     <!--<button mat-raised-button>Basic</button>-->
@@ -18,5 +16,7 @@
 <app-video-list></app-video-list>
 <app-video-file></app-video-file>
 
-<router-outlet></router-outlet>
-
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

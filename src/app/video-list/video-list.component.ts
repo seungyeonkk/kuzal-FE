@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {VideoSample} from '../model/videoSample';
-import {RestServiceService} from '../service/rest-service.service';
+import {RestService} from '../service/rest-service';
 
 @Component({
     selector: 'app-video-list',
@@ -10,7 +10,7 @@ import {RestServiceService} from '../service/rest-service.service';
 export class VideoListComponent implements OnInit {
     private videos: VideoSample[] = [];
 
-    constructor(private restService: RestServiceService) {
+    constructor(private restService: RestService) {
         this.restService.getData('/videos').subscribe((res: VideoSample[]) => {
             this.videos = res;
         });

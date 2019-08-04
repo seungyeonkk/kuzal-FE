@@ -1,11 +1,34 @@
-<div>
+<section class="container">
+    <div class="video_area">
+        <video src={{video.url}} autoplay controls type="video/mp4"></video>
+        <div class="info">
+            <h2 class="title">{{ video.title }}</h2>
+            <span class="count">조회수 {{ video.views }}</span>
+        </div>
+        <div class="user_info">
+            <div>
+                <div class="user">
+                    <p class="userId">{{ video.userId }}</p>
+                    <p class="date">게시일 : 2019-07-31</p>
+                </div>
+                <div class="button_area">
+                    <button>추천 236</button>
+                    <button>공유</button>
+                </div>
+            </div>
+            <p class="description">{{ video.description }}</p>
+        </div>
+    </div>
 
-    TEST VIDEO INFO
-    <!--<iframe width="1080" height="700"-->
-            <!--src="https://www.youtube.com/embed/T_gPofqiZQs" >-->
-    <!--</iframe>-->
-
-    <video src="https://kuzal4database.s3.ap-northeast-2.amazonaws.com/test_video.mp4" width="1000" height="500" autoplay>
-
-    </video>
-</div>
+    <div class="replies">
+        <p class="count">댓글 51개</p>
+        <div class="add">
+            <textarea></textarea>
+            <button>등록</button>
+        </div>
+        <div class="reply" *ngFor="let num of [1,2,3,4,5,6,7,8,9,10] ">
+            <span class="userId">groot{{num}}</span>
+            <span class="comment">우와 너무 잘해요 {{ num }}</span>
+        </div>
+    </div>
+</section>

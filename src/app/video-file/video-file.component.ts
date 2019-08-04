@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestServiceService } from '../service/rest-service.service';
+import { RestService } from '../service/rest-service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 @Component({
@@ -14,7 +14,7 @@ export class VideoFileComponent implements OnInit {
     result: any = {};
 
 
-  constructor(private restService: RestServiceService,  private fb: FormBuilder, private http: HttpClient) {
+  constructor(private restService: RestService,  private fb: FormBuilder, private http: HttpClient) {
 
       this.form = this.fb.group({
           file: ['', Validators.required]
@@ -59,9 +59,16 @@ export class VideoFileComponent implements OnInit {
 
     test(): void {
 
-      this.restService.getData('/health').subscribe((response: {}) => {
-          console.log(response);
-      });
+     /* this.restService.getData('/health').subscribe((response: {}) => {
+          onsole.log(response);
+      });*/
+
+
+
+
+      // memberService.getProfile() > restService.getData("/asda")
+         /// e/e//
+
 
 
     }
