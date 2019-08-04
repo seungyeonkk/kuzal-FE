@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { VideoListComponent } from './video-list/video-list.component';
 import {MaterialModule} from './material/material.module';
 import MyRoutes from './app.routes';
 
@@ -20,6 +20,7 @@ import { MainComponent } from './page/main/main.component';
         AppComponent,
         VideoFileComponent,
         VideoComponent,
+        VideoListComponent,
         FooterComponent,
         HeaderComponent,
         MainComponent
