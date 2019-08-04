@@ -42,7 +42,7 @@ export class RestService {
             catchError(this.handleError));
     }
 
-    getData(url: string, id: string): Observable<any> {
+    getData(url: string): Observable<any> {
         return this.http.get(apiUrl +  url, httpOptions).pipe(
             map(this.extractData),
             catchError(this.handleError));
