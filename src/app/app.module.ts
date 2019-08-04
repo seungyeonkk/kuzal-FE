@@ -13,6 +13,7 @@ import {VideoComponent} from './page/video/detail/video/video.component';
 import {FooterComponent} from './page/layout/footer/footer.component';
 import { HeaderComponent } from './page/layout/header/header.component';
 import { MainComponent } from './page/main/main.component';
+import { SideMenuComponent } from './page/layout/side-menu/side-menu.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MainComponent } from './page/main/main.component';
         VideoListComponent,
         FooterComponent,
         HeaderComponent,
-        MainComponent
+        MainComponent,
+        SideMenuComponent
     ],
     imports: [
         BrowserModule

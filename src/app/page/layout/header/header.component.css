@@ -1,9 +1,12 @@
 .header-menus{
     background-color: #3f51b5;
+    height:50px;
+    align-items: center;
 }
 .btn-wrapper {
     width: 100%;
     text-align: right;
+    padding-right: 40px;
 }
 .btn-wrapper > button{
     color:#fff;
