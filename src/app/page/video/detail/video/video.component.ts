@@ -8,15 +8,18 @@ import VideoModule from '../../../../model/video';
     templateUrl: './video.component.html',
     styleUrls: ['./video.component.css']
 })
-/** 5d3e96c56257691dd99625f3 **/
+
 export class VideoComponent implements OnInit {
+
+    private videoId: string;
+
+    constructor(private route: ActivatedRoute, private videoDetailService: VideoDetailService) {
+        this.videoId = route.snapshot.paramMap.get('id');
+        console.log(this.videoId);
+    }
+
     @Input() video: VideoModule = new VideoModule();
 
-    constructor(
-        private route: ActivatedRoute,
-        private videoDetailService: VideoDetailService
-    ) {
-    }
 
     ngOnInit() {
         this.getVideo();

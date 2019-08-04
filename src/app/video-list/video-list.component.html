@@ -1,0 +1,6 @@
+
+<ul class="list-group list-group-horizontal">
+    <li *ngFor="let video of videos" class="list-group-item" [routerLink]="['/videos', video.id]">{{video.title}}
+        <img src="{{video.thumnailUrl}}" class="img-fluid" alt="Responsive image" height="100" width="100">
+    </li>
+</ul>
