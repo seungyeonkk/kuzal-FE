@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {RestServiceService} from '../rest-service.service';
+import {RestService} from '../rest-service';
 import {Observable} from 'rxjs';
 import Video from '../../model/video';
 
@@ -9,10 +9,10 @@ import Video from '../../model/video';
 export class VideoDetailService {
 
     constructor(
-        private restService: RestServiceService) {
+        private restService: RestService) {
     }
 
     getVideo(id: string): Observable<Video> {
-        return this.restService.getData('/video/' + id);
+        return this.restService.getData('/video/', id);
     }
 }

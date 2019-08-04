@@ -11,7 +11,7 @@ const apiUrl = 'http://localhost:8081';
 @Injectable({
     providedIn: 'root'
 })
-export class RestServiceService {
+export class RestService {
 
     constructor(private http: HttpClient) { }
 
