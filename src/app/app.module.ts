@@ -13,7 +13,19 @@ import {VideoComponent} from './page/video/detail/video/video.component';
 import {FooterComponent} from './page/layout/footer/footer.component';
 import { HeaderComponent } from './page/layout/header/header.component';
 import { MainComponent } from './page/main/main.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { LoginComponent } from './page/admin/login/login.component';
 
+const firebaseConfig = {
+    apiKey: 'AIzaSyAQoyIbH0kevq3bVEvIwhYQaKMbj2B1WWA',
+    authDomain: 'kuzalcompetiton.firebaseapp.com',
+    databaseURL: 'https://kuzalcompetiton.firebaseio.com',
+    projectId: 'kuzalcompetiton',
+    storageBucket: '',
+    messagingSenderId: '182676330918',
+    appId: '1:182676330918:web:a6bd8d0a7c30746f'
+};
 
 @NgModule({
     declarations: [
@@ -23,7 +35,8 @@ import { MainComponent } from './page/main/main.component';
         VideoListComponent,
         FooterComponent,
         HeaderComponent,
-        MainComponent
+        MainComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule
@@ -33,6 +46,8 @@ import { MainComponent } from './page/main/main.component';
         , FormsModule
         , ReactiveFormsModule
         , MyRoutes
+        , AngularFireModule.initializeApp(firebaseConfig)
+        , AngularFireAuthModule
     ],
     providers: [],
     bootstrap: [AppComponent]
