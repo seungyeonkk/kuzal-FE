@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { VideoListComponent } from './video-list/video-list.component';
-import {MaterialModule} from './material/material.module';
 import MyRoutes from './app.routes';
 
 import {AppComponent} from './app.component';
@@ -30,7 +29,6 @@ import { SideMenuComponent } from './page/layout/side-menu/side-menu.component';
     imports: [
         BrowserModule
         , BrowserAnimationsModule
-        , MaterialModule
         , HttpClientModule
         , FormsModule
         , ReactiveFormsModule

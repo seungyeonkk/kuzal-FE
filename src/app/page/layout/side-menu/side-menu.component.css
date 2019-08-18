@@ -1,5 +1,10 @@
 .side-menu{
-    width:200px;
+    width:250px;
     height: 100vh;
     background-color: #eaeaea;
+    position: fixed;
+    overflow-y: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 50px;
 }

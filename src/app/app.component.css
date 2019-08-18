@@ -1,8 +1,17 @@
-.header{
-
+.main-header{
+    position: fixed;
     width: 100%;
-
+    z-index: 1020;
 }
-.content{
-    margin-top: 50px;
+.header{
+    width: 100%;
+}
+.main-side{
+    width: 100%;
+}
+.main-side-wrapper{
+    width: 250px;
+}
+.main-body{
+    width: 100%;
 }
