@@ -6,6 +6,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*'})
 };
+
 const apiUrl = 'http://localhost:8081';
 
 @Injectable({
@@ -50,6 +51,13 @@ export class RestService {
 
     postData(url: string, data: any): Observable<any> {
         return this.http.post(apiUrl + url, data, httpOptions)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
+
+    postDataByFile(url: string, data: any): Observable<any> {
+        return this.http.post(apiUrl + url, data)
             .pipe(
                 catchError(this.handleError)
             );

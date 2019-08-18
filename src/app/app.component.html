@@ -1,22 +1,27 @@
-<div class="header">
-    <app-header></app-header>
+<div class="row main-header">
+    <app-header class="header"></app-header>
 </div>
 
-<!--<h2>Material Design 적용</h2>-->
-<!--<div class="example-button-row">-->
-    <!--<button mat-raised-button>Basic</button>-->
-    <!--<button mat-raised-button color="primary">Primary</button>-->
-    <!--<button mat-raised-button color="accent">Accent</button>-->
-    <!--<button mat-raised-button color="warn">Warn</button>-->
-    <!--<button mat-raised-button disabled>Disabled</button>-->
-    <!--<a mat-raised-button routerLink=".">Link</a>-->
+<div class="row">
+    <div class="main-side-wrapper">
+        <app-side-menu class="main-side"></app-side-menu>
+    </div>
+    <div class="col-auto">
+        <router-outlet class="main-body"></router-outlet>
+    </div>
 
-
-<!--</div>-->
-<app-video-list></app-video-list>
-<app-video-file></app-video-file>
-
-<div class="content">
-    <router-outlet></router-outlet>
 </div>
-<app-footer></app-footer>
+
+
+
+
+<!--
+<div class="row">
+    <div class="col-auto main-side">
+        <app-side-menu></app-side-menu>
+    </div>
+    <div class="col-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+-->

@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { VideoListComponent } from './video-list/video-list.component';
-import {MaterialModule} from './material/material.module';
 import MyRoutes from './app.routes';
 
 import {AppComponent} from './app.component';
@@ -16,6 +15,7 @@ import { MainComponent } from './page/main/main.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { LoginComponent } from './page/admin/login/login.component';
+import { SideMenuComponent } from './page/layout/side-menu/side-menu.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAQoyIbH0kevq3bVEvIwhYQaKMbj2B1WWA',
@@ -36,12 +36,12 @@ const firebaseConfig = {
         FooterComponent,
         HeaderComponent,
         MainComponent,
-        LoginComponent
+        LoginComponent,
+        SideMenuComponent
     ],
     imports: [
         BrowserModule
         , BrowserAnimationsModule
-        , MaterialModule
         , HttpClientModule
         , FormsModule
         , ReactiveFormsModule
