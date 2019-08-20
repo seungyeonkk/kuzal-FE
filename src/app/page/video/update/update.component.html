@@ -1,0 +1,25 @@
+<section class="container">
+    //수정페이지는 마이페이지 붙일 예정<br>
+    //마이페이지에서만 접근하도록<br>
+    //지금은 수정 테스트를 위한 페이지 일 뿐<br>
+    //디자인은 추 후에 해야할듯 합니다<br><br>
+    <table>
+        <tr>
+            <td>
+                제목
+            </td>
+            <td>
+                <input type="text" [value]="video.title" (input)="textChange('title', $event.target.value)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                코멘트
+            </td>
+            <td>
+                <input type="text" [value]="video.description" (input)="textChange('description', $event.target.value)">
+            </td>
+        </tr>
+    </table>
+    <div><button (click)="updateVideo()">수정</button></div>
+</section>
