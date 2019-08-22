@@ -1,0 +1,18 @@
+<div class="form-group">
+  <label for="title">제목</label>
+  <input type="text" class="form-control" id="title" [(ngModel)]="video.title">
+</div>
+<div class="form-group">
+  <label for="description">설명</label>
+  <textarea class="form-control" id="description" rows="3" [(ngModel)]="video.description"></textarea>
+</div>
+<div class="form-group">
+  <input type="file" class="form-control" id="validatedCustomFile" (change)="onVideoFileChange(videoFile.files)" #videoFile>
+
+</div>
+<div class="form-group">
+  <input type="file" class="form-control" id="thumnail" (change)="onThumnailFileChange(thumnailFile.files)" #thumnailFile>
+
+</div>
+
+<button type="submit" class="btn btn-primary" (click)="uploadVideo()">업로드</button>
