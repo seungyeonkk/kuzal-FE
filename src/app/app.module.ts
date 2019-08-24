@@ -16,6 +16,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { LoginComponent } from './page/admin/login/login.component';
 import { SideMenuComponent } from './page/layout/side-menu/side-menu.component';
+import { VideoUploadComponent } from './page/video/upload/video-upload/video-upload.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAQoyIbH0kevq3bVEvIwhYQaKMbj2B1WWA',
@@ -37,7 +38,8 @@ const firebaseConfig = {
         HeaderComponent,
         MainComponent,
         LoginComponent,
-        SideMenuComponent
+        SideMenuComponent,
+        VideoUploadComponent
     ],
     imports: [
         BrowserModule
