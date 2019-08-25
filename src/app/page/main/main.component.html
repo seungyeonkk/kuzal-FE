@@ -2,6 +2,7 @@
     메인화면 입니다.
 
 
+<!--
         <div class="form-group">
             <label for="title">제목</label>
             <input type="text" class="form-control" id="title" [(ngModel)]="video.title">
@@ -19,12 +20,13 @@
 
        </div>
 
-       <!-- <button type="submit" class="btn btn-primary" (click)="uploadVideo()">업로드</button>-->
+       &lt;!&ndash; <button type="submit" class="btn btn-primary" (click)="uploadVideo()">업로드</button>&ndash;&gt;
         <button class="btn btn-primary" type="button" (click)="uploadVideo()" [disabled]="flag.upload">
             <span *ngIf="flag.upload" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span *ngIf="!flag.upload">업로드</span>
             <span *ngIf="flag.upload">Uploading...</span>
         </button>
+-->
 
 
 </div>
