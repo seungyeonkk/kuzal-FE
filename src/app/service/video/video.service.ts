@@ -10,8 +10,7 @@ export class VideoService {
 
   constructor(private restService: RestService) {
 
-  }  
-
+  }
     uploadVideo(data: any): Observable<any> {
         return this.restService.postData('/videos/upload', data);
     }
