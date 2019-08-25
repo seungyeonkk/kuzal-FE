@@ -16,6 +16,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { LoginComponent } from './page/admin/login/login.component';
 import { SideMenuComponent } from './page/layout/side-menu/side-menu.component';
+import { UpdateComponent } from './page/video/update/update.component';
 import { VideoUploadComponent } from './page/video/upload/video-upload/video-upload.component';
 
 const firebaseConfig = {
@@ -37,6 +38,7 @@ const firebaseConfig = {
         FooterComponent,
         HeaderComponent,
         MainComponent,
+        UpdateComponent,
         LoginComponent,
         SideMenuComponent,
         VideoUploadComponent
