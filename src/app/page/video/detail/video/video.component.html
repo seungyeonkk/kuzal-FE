@@ -3,6 +3,7 @@
         <video src={{video.url}} autoplay controls type="video/mp4"></video>
         <div class="info">
             <h2 class="title">{{ video.title }}</h2>
+            <p><a [routerLink]="['/videos/update', video._id]">수정(TEST)</a></p>
             <span class="count">조회수 {{ video.views }}</span>
         </div>
         <div class="user_info">

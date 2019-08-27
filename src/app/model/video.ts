@@ -1,5 +1,5 @@
 export default class VideoModule {
-    id: string;
+    _id: string;
     userId: string;
     title: string;
     url: string;

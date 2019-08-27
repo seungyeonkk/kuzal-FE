@@ -1,15 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {VideoService} from '../../../../service/video/video.service';
 import {ActivatedRoute} from '@angular/router';
-import VideoModule from '../../../../model/video';
+import VideoModule from '../../../model/video';
+import {VideoService} from '../../../service/video/video.service';
 
 @Component({
-    selector: 'app-video',
-    templateUrl: './video.component.html',
-    styleUrls: ['./video.component.css']
+    selector: 'app-update',
+    templateUrl: './update.component.html',
+    styleUrls: ['./update.component.css']
 })
-
-export class VideoComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
     private videoId: string;
 
@@ -30,4 +29,13 @@ export class VideoComponent implements OnInit {
         this.videoService.getVideo(id)
             .subscribe(video => this.video = video);
     }
+
+    updateVideo(): void {
+        this.videoService.updateVideo(JSON.stringify(this.video))
+            .subscribe(params => console.log(params));
+    }
+    textChange(param, text): void {
+        param === 'title' ? this.video.title = text : this.video.description = text;
+    }
+
 }
