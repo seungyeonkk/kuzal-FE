@@ -1,25 +1,46 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Uploading...</p>
+</ngx-spinner>
 <div class="upload">
-      <div class="form-group">
-          <label for="title">제목</label>
-          <input type="text" class="form-control" id="title" [(ngModel)]="video.title">
-      </div>
-      <div class="form-group">
-          <label for="description">설명</label>
-          <textarea class="form-control" id="description" rows="3" [(ngModel)]="video.description"></textarea>
-      </div>
-      <div class="form-group">
-          <input type="file" class="form-control" id="validatedCustomFile" (change)="onVideoFileChange(videoFile.files)" #videoFile>
-
-      </div>
-      <div class="form-group">
-          <input type="file" class="form-control" id="thumnail" (change)="onThumnailFileChange(thumnailFile.files)" #thumnailFile>
-
-     </div>
-
-     <!-- <button type="submit" class="btn btn-primary" (click)="uploadVideo()">업로드</button>-->
-      <button class="btn btn-primary" type="button" (click)="uploadVideo()" [disabled]="flag.upload">
-          <span *ngIf="flag.upload" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-          <span *ngIf="!flag.upload">업로드</span>
-          <span *ngIf="flag.upload">Uploading...</span>
-      </button>
+    <div class="content">
+        <div class="uploadView">
+            <p class="uploadNotice" style="text-align:center">동영상을 선택해주세요.</p>
+            <div class="box">
+                    <a class="a_btn">파일 업로드</a>
+                    <input type="file" class="i_btn" name="imageFile" accept="image/*">
+                </div>
+        </div>
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="video.title">
+            </div>
+            <div class="form-group">
+                <label for="description">설명</label>
+                <textarea class="form-control" id="description" rows="3" [(ngModel)]="video.description"></textarea>
+            </div>
+              <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="customFile" accept="video/*" (change)="onVideoFileChange(videoFile.files)" #videoFile>
+                  <label class="custom-file-label" for="customFile" >{{video.videoFile.name}}</label>
+              </div>
+              <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="customFile" accept="image/*" (change)="onThumnailFileChange(thumnailFile.files)" #thumnailFile>
+                  <label class="custom-file-label" for="customFile" >{{video.thumnailFile.name}}</label>
+              </div>
+              <div class="imgBox">
+                  <img class="image" *ngIf="imageSrc" [src]="imageSrc"  src="https://img.icons8.com/ios/50/000000/xbox-x.png">
+              </div>
+               
+               <!-- <button type="submit" class="btn btn-primary" (click)="uploadVideo()">업로드</button>-->
+                <button class="btn btn-primary" type="button" (click)="uploadVideo()" [disabled]="flag.upload" style="margin-top:20px">
+                    <span *ngIf="flag.upload" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span *ngIf="!flag.upload">업로드</span>
+                    <span *ngIf="flag.upload">Uploading...</span>
+                </button>
+    </div>
+      
 </div>

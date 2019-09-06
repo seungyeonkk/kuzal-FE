@@ -18,6 +18,8 @@ import { LoginComponent } from './page/admin/login/login.component';
 import { SideMenuComponent } from './page/layout/side-menu/side-menu.component';
 import { UpdateComponent } from './page/video/update/update.component';
 import { VideoUploadComponent } from './page/video/upload/video-upload/video-upload.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { VideoUploadCompletedComponent } from './page/video/video-upload-completed/video-upload-completed.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAQoyIbH0kevq3bVEvIwhYQaKMbj2B1WWA',
@@ -41,7 +43,8 @@ const firebaseConfig = {
         UpdateComponent,
         LoginComponent,
         SideMenuComponent,
-        VideoUploadComponent
+        VideoUploadComponent,
+        VideoUploadCompletedComponent
     ],
     imports: [
         BrowserModule
@@ -52,6 +55,7 @@ const firebaseConfig = {
         , MyRoutes
         , AngularFireModule.initializeApp(firebaseConfig)
         , AngularFireAuthModule
+        , NgxSpinnerModule
     ],
     providers: [],
     bootstrap: [AppComponent]
