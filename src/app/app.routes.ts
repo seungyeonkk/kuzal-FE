@@ -9,7 +9,7 @@ import { VideoUploadComponent } from './page/video/upload/video-upload/video-upl
 const appRoutes: Routes = [
     {path: '', component: MainComponent},
     {path: 'videos/update/:id', component: UpdateComponent},
-    {path: 'videos/:id', component: VideoComponent},
+    {path: 'videos/get/:id', component: VideoComponent},
     {path: 'login', component: LoginComponent},
     {path: 'upload', component: VideoUploadComponent}
 ];
