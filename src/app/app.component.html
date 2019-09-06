@@ -2,26 +2,16 @@
     <app-header class="header"></app-header>
 </div>
 
-<div class="row">
+<div >
     <div class="main-side-wrapper">
         <app-side-menu class="main-side"></app-side-menu>
     </div>
-    <div class="col-auto">
-        <router-outlet class="main-body"></router-outlet>
+    <div class="main-wrapper">
+        <router-outlet></router-outlet>
     </div>
-
 </div>
-
 
 
 
 <!--
-<div class="row">
-    <div class="col-auto main-side">
-        <app-side-menu></app-side-menu>
-    </div>
-    <div class="col-8">
-        <router-outlet></router-outlet>
-    </div>
-</div>
--->
+[ngStyle]="{'width.px': mainWidth}"-->

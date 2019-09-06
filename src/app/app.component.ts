@@ -6,17 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'kuzal';
-  shouldRun = false;
+
+    mainWidth: any; // 메인 화면 넓이
 
 
-
-  constructor(){
+  constructor() {
 
   }
 
-  test(){
-      this.shouldRun = !this.shouldRun;
+  ngOnInit() {
+    this.mainWidth = window.innerWidth - 250;
   }
+
 
 }

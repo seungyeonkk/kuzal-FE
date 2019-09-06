@@ -8,64 +8,105 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 export class MainComponent implements OnInit {
 
-    flag: any = {
-        upload: false
-    };
-
-    video: any = {
-        title: ''
-        , description: ''
-        , userId: 'test123'
-        , videoFile: null
-        , thumnailFile: null
-        , regDate: '2019-08-18'
-    };
-
+    videoList1: any;
+    categoryName1: any;
+    videoList2: any;
+    categoryName2: any;
 
   constructor(private restService: RestService, private http: HttpClient) { }
 
   ngOnInit() {
+      this.categoryName1 = 'TWICE';
+      this.videoList1 = [
+        {
+            thumbnailUrl : '../../../assets/img/thumbnail.png'
+            , title : '사나는 여신이야'
+            , userId : '김사나'
+            , views : '20만회'
 
-  }
+        },
+        {
+            thumbnailUrl : '../../../assets/img/thumbnail.png'
+            , title : '사나는 여신이야'
+            , userId : '김사나'
+            , views : '20만회'
 
-    onVideoFileChange(files: FileList) {
-        if (files && files.length > 0) {
-         this.video.videoFile = files[0];
+        },
+        {
+            thumbnailUrl : '../../../assets/img/thumbnail.png'
+            , title : '사나는 여신이야'
+            , userId : '김사나'
+            , views : '20만회'
+
+        },
+        {
+            thumbnailUrl : '../../../assets/img/thumbnail.png'
+            , title : '사나는 여신이야'
+            , userId : '김사나'
+            , views : '20만회'
+
+        },
+        {
+            thumbnailUrl : '../../../assets/img/thumbnail.png'
+            , title : '사나는 여신이야'
+            , userId : '김사나'
+            , views : '20만회'
+
+        },
+        {
+            thumbnailUrl : '../../../assets/img/thumbnail.png'
+            , title : '사나는 여신이야'
+            , userId : '김사나'
+            , views : '20만회'
+
         }
-    }
+    ];
+      this.categoryName2 = '장만월';
+      this.videoList2 = [
+          {
+              thumbnailUrl : '../../../assets/img/iu.png'
+              , title : '장만월 예뻐요'
+              , userId : '구찬성'
+              , views : '11만회'
 
-    onThumnailFileChange(files: FileList) {
-        if (files && files.length > 0) {
-            this.video.thumnailFile = files[0];
-        }
-    }
+          },
+          {
+              thumbnailUrl : '../../../assets/img/iu.png'
+              , title : '장만월 예뻐요'
+              , userId : '구찬성'
+              , views : '11만회'
 
+          },
+          {
+              thumbnailUrl : '../../../assets/img/iu.png'
+              , title : '장만월 예뻐요'
+              , userId : '구찬성'
+              , views : '11만회'
 
-  // video upload
-  uploadVideo(): void {
+          },
+          {
+              thumbnailUrl : '../../../assets/img/iu.png'
+              , title : '장만월 예뻐요'
+              , userId : '구찬성'
+              , views : '11만회'
 
-      this.flag.upload = true;
+          },
+          {
+              thumbnailUrl : '../../../assets/img/iu.png'
+              , title : '장만월 예뻐요'
+              , userId : '구찬성'
+              , views : '11만회'
 
-      const formData: FormData = new FormData();
-      formData.append('title', this.video.title);
-      formData.append('userId', this.video.userId);
-      formData.append('regDate', this.video.regDate);
-      formData.append('description', this.video.description);
-      formData.append('videoFile', this.video.videoFile);
-      formData.append('thumnailFile', this.video.thumnailFile);
+          },
+          {
+              thumbnailUrl : '../../../assets/img/iu.png'
+              , title : '장만월 예뻐요'
+              , userId : '구찬성'
+              , views : '11만회'
 
-      this.restService.postDataByFile('/videos/upload', formData).subscribe(res => {
-          console.log(res);
-          this.flag.upload = false;
-          if (res.result === 'Success') {
-              // TODO 동영상 업로드 목록으로 이동 (회원 마이페이지)
           }
-      }, error => {
-          this.flag.upload = false;
-      });
-
+      ];
   }
-
 
 
 

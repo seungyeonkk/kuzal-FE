@@ -10,8 +10,22 @@
     width: 100%;
 }
 .main-side-wrapper{
-    width: 250px;
+    height: 100vh;
+    background-color: #eaeaea;
+    position: fixed;
+    overflow-y: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    width : 250px;
+    margin-top: 50px;
+    left:0;
+    top:0;
 }
-.main-body{
-    width: 100%;
+
+.main-wrapper{
+    position: relative;
+    left:0;
+    overflow-y: auto;
+    padding: 50px;
+    margin-left: 250px;
 }

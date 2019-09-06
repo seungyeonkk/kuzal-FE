@@ -1,0 +1,21 @@
+<div class="row cat-title-wrapper">
+    <div class="col-md-12" align="left">
+        <span class="cat-title">{{categoryName}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2 video-card" *ngFor="let video of videoList" (click)="goVideoDetail()">
+        <div class="img-wrapper">
+            <img [src]="video.thumbnailUrl" class="thumbnail">
+        </div>
+        <div class="title-wrapper">
+            <span>{{video.title}}</span>
+        </div>
+        <div class="text-wrapper">
+            <span>{{video.userId}}</span>
+        </div>
+        <div class="text-wrapper">
+            <span>조회수 {{video.views}}</span>
+        </div>
+    </div>
+</div>
