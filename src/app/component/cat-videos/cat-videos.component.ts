@@ -7,8 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CatVideosComponent implements OnInit {
 
-    @Input() videoList: any;
-    @Input() categoryName: string;
+    @Input() videoList: any;  // 비디오 목록
+    @Input() categoryName: string; // 카테고리 명
 
 
     constructor() {
