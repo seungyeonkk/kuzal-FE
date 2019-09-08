@@ -6,6 +6,7 @@ import {log} from 'util';
 import {ReplyService} from '../../../../service/reply/reply.service';
 import ReplyModule from '../../../../model/reply';
 import {__await} from 'tslib';
+import {AuthService} from '../../../../service/auth.service';
 
 @Component({
     selector: 'app-video',
@@ -17,10 +18,13 @@ export class VideoComponent implements OnInit {
 
     private videoId: string;
     private login = false;
+    private email;
     private reply: ReplyModule = new ReplyModule();
 
-    constructor(private route: ActivatedRoute, private videoService: VideoService,
-                private replyService: ReplyService) {
+    constructor(private route: ActivatedRoute,
+                private videoService: VideoService,
+                private replyService: ReplyService,
+                private authService: AuthService) {
         this.videoId = route.snapshot.paramMap.get('id');
         console.log(this.videoId);
     }
@@ -47,10 +51,12 @@ export class VideoComponent implements OnInit {
                     });
             });
     }
-    /*공통함수로 빼야할듯*/
     loginCheck(): void {
-        if (localStorage.getItem('user')) {
+        const loginData = this.authService.isUserLoggedIn();
+        log('loginData', loginData);
+        if (loginData.email) {
             this.login = true;
+            this.reply.userId = loginData.email;
         }
     }
     updateViews(): void {
@@ -65,7 +71,7 @@ export class VideoComponent implements OnInit {
             alert('로그인 후 이용 가능합니다.');
             return;
         } else {
-            this.reply.userId = 'test123';
+            const email = this.reply.userId;
             this.reply.videoId = this.video._id;
             this.replyService.addReply(JSON.stringify(this.reply))
                 .subscribe(
@@ -73,6 +79,7 @@ export class VideoComponent implements OnInit {
                         console.log('add replyList => ', data);
                         this.replyList = data;
                         this.reply = new ReplyModule();
+                        this.reply.userId = email;
                     });
         }
     }
