@@ -1,3 +1,15 @@
 <p>
   myaccount works!
 </p>
+<p>
+email : {{authService.user.email}}
+</p>
+<p>
+nickName : {{authService.user.displayName}}
+</p>
+
+
+<input type="text" class="form-control"  [(ngModel)]="nickName">
+<button (click)="updateUser()">수정하기</button>
+
+

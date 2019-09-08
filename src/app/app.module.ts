@@ -17,7 +17,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import { SideMenuComponent } from './page/layout/side-menu/side-menu.component';
 import { UpdateComponent } from './page/video/update/update.component';
 import { VideoUploadComponent } from './page/video/upload/video-upload/video-upload.component';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { VideoUploadCompletedComponent } from './page/video/video-upload-completed/video-upload-completed.component';
 import { CatVideosComponent } from './component/cat-videos/cat-videos.component';
 import { MyaccountComponent } from './page/admin/myaccount/myaccount.component';

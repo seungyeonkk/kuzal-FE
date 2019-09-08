@@ -56,6 +56,12 @@ export class RestService {
             );
     }
 
+    putData(url: string, data: any): Observable<any> {
+        return this.http.put(apiUrl + url, data, httpOptions)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
     postDataByFile(url: string, data: any): Observable<any> {
         return this.http.post(apiUrl + url, data)
             .pipe(
