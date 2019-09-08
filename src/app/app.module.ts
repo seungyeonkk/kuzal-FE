@@ -21,6 +21,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { VideoUploadCompletedComponent } from './page/video/video-upload-completed/video-upload-completed.component';
 import { CatVideosComponent } from './component/cat-videos/cat-videos.component';
 import { MyaccountComponent } from './page/admin/myaccount/myaccount.component';
+import { MyVideoComponent } from './page/admin/my-video/my-video.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAQoyIbH0kevq3bVEvIwhYQaKMbj2B1WWA',
@@ -46,7 +47,8 @@ const firebaseConfig = {
         VideoUploadComponent,
         VideoUploadCompletedComponent,
         CatVideosComponent,
-        MyaccountComponent
+        MyaccountComponent,
+        MyVideoComponent
     ],
     imports: [
         BrowserModule
