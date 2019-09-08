@@ -5,6 +5,7 @@ import { RestService } from 'src/app/service/rest-service';
 import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-video-upload',
@@ -28,7 +29,7 @@ export class VideoUploadComponent{
       , regDate: '2019-08-18'
   };
   
-  constructor(private restService: RestService, private http: HttpClient, private spinner: NgxSpinnerService, private router: Router) { }
+  constructor(private restService: RestService, private http: HttpClient, private spinner: NgxSpinnerService, private router: Router, private authServie: AuthService) { }
 
   ngOnInit() {
     // /** spinner starts on init */
@@ -38,6 +39,7 @@ export class VideoUploadComponent{
     //   /** spinner ends after 5 seconds */
     //   this.spinner.hide();
     // }, 5000);
+    this.video.userId = this.authServie.user.email;
     this.imageSrc = "https://img.icons8.com/ios/50/000000/xbox-x.png";
   }
 
@@ -75,7 +77,7 @@ export class VideoUploadComponent{
     formData.append('description', this.video.description);
     formData.append('videoFile', this.video.videoFile);
     formData.append('thumnailFile', this.video.thumnailFile);
-
+    console.log(this.video);
     this.spinner.show();
     this.restService.postDataByFile('/videos/upload', formData).subscribe(res => {
         console.log(res);
