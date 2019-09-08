@@ -59,7 +59,7 @@ export class VideoUploadComponent{
         base64 인코딩된 스트링 데이터를 취득한 후, img 태그에 바인딩한다. */
       reader.readAsDataURL(this.video.thumnailFile);
       reader.onload = () => {
-        this.imageSrc = reader.result;
+        //this.imageSrc = reader.result;
       };
       }
   }
