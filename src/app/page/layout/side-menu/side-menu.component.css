@@ -1,10 +1,9 @@
-.side-menu{
-    width:250px;
-    height: 100vh;
-    background-color: #eaeaea;
-    position: fixed;
-    overflow-y: auto;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-top: 50px;
+.btn-wrapper{
+    margin-top: 20px;
+    text-align: center;
+}
+.bar {
+    height: 1px;
+    width: 200px;
+    background: darkgrey;
 }

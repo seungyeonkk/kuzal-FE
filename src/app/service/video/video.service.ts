@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestService } from '../rest-service';
 import { Observable } from 'rxjs';
 import Video from '../../model/video';
+import {log} from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,8 @@ export class VideoService {
 
     updateVideo(video: string): Observable<string> {
         return this.restService.postData('/videos/update', video);
+    }
+    updateVideoViews(video: string): Observable<string> {
+        return this.restService.postData('/videos/views', video);
     }
 }

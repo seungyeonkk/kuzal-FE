@@ -24,12 +24,15 @@
     <div class="replies">
         <p class="count">댓글 51개</p>
         <div class="add">
-            <textarea></textarea>
-            <button>등록</button>
+            <textarea  name="comment"
+                       rows="8"
+                       [(ngModel)]="reply.comment"
+                       #comment='ngModel'></textarea>
+            <button (click)="addReply()">등록</button>
         </div>
-        <div class="reply" *ngFor="let num of [1,2,3,4,5,6,7,8,9,10] ">
-            <span class="userId">groot{{num}}</span>
-            <span class="comment">우와 너무 잘해요 {{ num }}</span>
+        <div class="reply" *ngFor="let reply of replyList ">
+            <span class="userId">userId : {{reply.userId}}</span>
+            <span class="comment">comment : {{reply.comment}}</span>
         </div>
     </div>
 </section>

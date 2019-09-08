@@ -14,6 +14,8 @@ const appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'upload', component: VideoUploadComponent},
     {path: 'uploadCompleted', component:VideoUploadCompletedComponent}
+    {path: 'my/account', component: VideoUploadComponent},
+    {path: 'my/video', component: VideoUploadComponent}
 ];
 
 @NgModule({
