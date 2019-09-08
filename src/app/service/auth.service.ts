@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {auth, User} from 'firebase';
 import {AngularFireAuth} from '@angular/fire/auth';
+import {RestService} from './rest-service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 export class AuthService {
   user: User;
   isUser: boolean;
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private restService: RestService) {
       this.afAuth.authState.subscribe(user => {
           if (user) {
               this.user = user;
@@ -19,6 +20,9 @@ export class AuthService {
       });
   }
 
+  updateUser(nickName: string) {
+      return this.restService.putData('/users/' + this.user.email, nickName);
+  }
 
   async loginWithGoogle() {
       this.isUser = true;
