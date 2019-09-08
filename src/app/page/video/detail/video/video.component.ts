@@ -7,6 +7,7 @@ import {ReplyService} from '../../../../service/reply/reply.service';
 import ReplyModule from '../../../../model/reply';
 import {__await} from 'tslib';
 import {AuthService} from '../../../../service/auth.service';
+import Liked from '../../../../model/liked';
 
 @Component({
     selector: 'app-video',
@@ -20,6 +21,8 @@ export class VideoComponent implements OnInit {
     private login = false;
     private email;
     private reply: ReplyModule = new ReplyModule();
+    private liked: Liked = new Liked();
+    private likedCnt: number;
 
     constructor(private route: ActivatedRoute,
                 private videoService: VideoService,
@@ -34,36 +37,64 @@ export class VideoComponent implements OnInit {
 
 
     ngOnInit() {
-        this.getVideo();
         this.loginCheck();
     }
-
     getVideo(): void {
         const id = this.route.snapshot.paramMap.get('id');
         this.videoService.getVideo(id)
             .subscribe(video => {
                 this.video = video;
                 this.updateViews();
+                this.getLiked(video._id);
                 this.replyService.getReplyVideoId(video._id).subscribe(
                     (data: ReplyModule[]) => {
                         console.log('replyList => ', data);
                         this.replyList = data;
+                        if (this.login) {
+                            this.getMyLiked();
+                        }
                     });
             });
     }
     loginCheck(): void {
         const loginData = this.authService.isUserLoggedIn();
-        log('loginData', loginData);
         if (loginData.email) {
             this.login = true;
             this.reply.userId = loginData.email;
         }
+
+        this.getVideo();
+    }
+    getMyLiked(): void {
+        this.liked.videoId = this.video._id;
+        this.liked.userId = this.reply.userId;
+        console.log('getMyLiked start', this.liked);
+        this.videoService.getMyLiked(JSON.stringify(this.liked))
+            .subscribe(param => {
+               log('getMyLiked' , param);
+            });
+    }
+    getLiked(videoId): void {
+        this.videoService.getVideoLiked(videoId)
+            .subscribe(count => {
+                console.log('count = ', count);
+                this.likedCnt = count;
+            });
     }
     updateViews(): void {
         log('updateViews views = ' + this.video.views);
         this.video.views ++;
         this.videoService.updateVideoViews(JSON.stringify(this.video))
             .subscribe(param => log(param));
+    }
+    updateLikes(): void {
+        log('updateRecommends');
+        if (!this.login) {
+            alert('로그인 후 이용 가능합니다.');
+        } else {
+            this.videoService.updateVideoLiked(JSON.stringify(this.liked))
+                .subscribe(param => log(param));
+        }
     }
     addReply(): void {
         log('addReply');

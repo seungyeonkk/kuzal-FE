@@ -26,4 +26,13 @@ export class VideoService {
     updateVideoViews(video: string): Observable<string> {
         return this.restService.postData('/videos/views', video);
     }
+    getMyLiked(liked: string): Observable<string> {
+      return this.restService.postData('/videos/myLiked' , liked);
+    }
+    getVideoLiked(videoId: string): any {
+        return this.restService.getData('/videos/liked/' + videoId);
+    }
+    updateVideoLiked(liked: string): Observable<string> {
+      return this.restService.postData('/videos/liked', liked);
+    }
 }
