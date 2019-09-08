@@ -2,6 +2,8 @@
     <div class="col-12 btn-wrapper">
         <button type="primary" class="btn btn-link" [routerLink]="['/']">홈</button>
         <button type="primary" class="btn btn-link" [routerLink]="['/upload']">업로드</button>
-        <button type="primary" class="btn btn-link" [routerLink]="['/login']">로그인</button>
+        <button type="primary" class="btn btn-link" *ngIf="!isUser" (click) = googleLogin()>로그인</button>
+        <button type="primary" class="btn btn-link" *ngIf="isUser" (click) = logoutUser()>로그아웃</button>
+
     </div>
 </div>
