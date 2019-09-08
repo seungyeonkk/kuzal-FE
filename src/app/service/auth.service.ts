@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {auth, User} from 'firebase';
 import {AngularFireAuth} from '@angular/fire/auth';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user: User;
+  isUser: boolean;
   constructor(public afAuth: AngularFireAuth) {
       this.afAuth.authState.subscribe(user => {
           if (user) {
@@ -21,6 +21,7 @@ export class AuthService {
 
 
   async loginWithGoogle() {
+      this.isUser = true;
       return await this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
@@ -29,6 +30,7 @@ export class AuthService {
   }
 
   async logout() {
+      this.isUser = false;
       return await this.afAuth.auth.signOut();
   }
 
