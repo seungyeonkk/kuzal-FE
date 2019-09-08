@@ -29,3 +29,6 @@
     padding: 50px;
     margin-left: 250px;
 }
+.col-auto {
+    margin: 0 auto;
+}
