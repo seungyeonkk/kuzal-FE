@@ -20,6 +20,7 @@ import { VideoUploadComponent } from './page/video/upload/video-upload/video-upl
 import { NgxSpinnerModule } from "ngx-spinner";
 import { VideoUploadCompletedComponent } from './page/video/video-upload-completed/video-upload-completed.component';
 import { CatVideosComponent } from './component/cat-videos/cat-videos.component';
+import { MyaccountComponent } from './page/admin/myaccount/myaccount.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAQoyIbH0kevq3bVEvIwhYQaKMbj2B1WWA',
@@ -44,7 +45,8 @@ const firebaseConfig = {
         SideMenuComponent,
         VideoUploadComponent,
         VideoUploadCompletedComponent,
-        CatVideosComponent
+        CatVideosComponent,
+        MyaccountComponent
     ],
     imports: [
         BrowserModule

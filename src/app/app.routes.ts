@@ -5,7 +5,7 @@ import {MainComponent} from './page/main/main.component';
 import {UpdateComponent} from './page/video/update/update.component';
 import { VideoUploadComponent } from './page/video/upload/video-upload/video-upload.component';
 import {VideoUploadCompletedComponent} from './page/video/video-upload-completed/video-upload-completed.component';
-
+import {MyaccountComponent} from './page/admin/myaccount/myaccount.component';
 
 const appRoutes: Routes = [
     {path: '', component: MainComponent},
@@ -13,8 +13,8 @@ const appRoutes: Routes = [
     {path: 'videos/get/:id', component: VideoComponent},
     {path: 'upload', component: VideoUploadComponent},
     {path: 'uploadCompleted', component: VideoUploadCompletedComponent},
-    {path: 'my/account', component: VideoUploadComponent},
-    {path: 'my/video', component: VideoUploadComponent}
+    {path: 'my-account', component: MyaccountComponent},
+    {path: 'my-video', component: VideoUploadComponent}
 ];
 
 @NgModule({
