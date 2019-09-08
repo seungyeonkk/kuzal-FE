@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     {path: 'videos/get/:id', component: VideoComponent},
     {path: 'login', component: LoginComponent},
     {path: 'upload', component: VideoUploadComponent},
-    {path: 'uploadCompleted', component:VideoUploadCompletedComponent}
+    {path: 'uploadCompleted', component:VideoUploadCompletedComponent},
     {path: 'my/account', component: VideoUploadComponent},
     {path: 'my/video', component: VideoUploadComponent}
 ];
