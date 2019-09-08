@@ -2,3 +2,8 @@
     margin-top: 20px;
     text-align: center;
 }
+.bar {
+    height: 1px;
+    width: 200px;
+    background: darkgrey;
+}
