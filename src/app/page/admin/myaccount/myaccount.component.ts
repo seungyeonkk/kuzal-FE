@@ -12,7 +12,7 @@ export class MyaccountComponent implements OnInit {
   constructor(private authService: AuthService, private restService: RestService) { }
 
   updateUser() {
-      console.log(this.nickName)
+      console.log(this.nickName);
       // this.authService.updateUser(this.nickName).subscribe(params => console.log(params));
   }
   ngOnInit() {
