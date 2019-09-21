@@ -23,7 +23,7 @@ export class VideoUploadComponent{
   video: any = {
       title: ''
       , description: ''
-      , catId: 'cat01'
+      , catId: 'cat02'
       , userId: 'test123'
       , videoFile: null
       , thumbnailFile: null

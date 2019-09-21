@@ -1,17 +1,9 @@
 <div class="main">
-    <app-cat-videos [videoList]="videoList1" [categoryName]="categoryName1"></app-cat-videos>
 
-    <app-cat-videos [videoList]="videoList2" [categoryName]="categoryName2"></app-cat-videos>
+    <div class="cat-videos-wraaper" *ngFor="let item of mainDatas">
+        <app-cat-videos [videoList]="item.videos" [categoryName]="item.catTitle"></app-cat-videos>
+    </div>
 
-    <app-cat-videos [videoList]="videoList1" [categoryName]="categoryName1"></app-cat-videos>
 
-    <app-cat-videos [videoList]="videoList2" [categoryName]="categoryName2"></app-cat-videos>
 
-    <app-cat-videos [videoList]="videoList1" [categoryName]="categoryName1"></app-cat-videos>
-
-    <app-cat-videos [videoList]="videoList2" [categoryName]="categoryName2"></app-cat-videos>
-
-    <app-cat-videos [videoList]="videoList1" [categoryName]="categoryName1"></app-cat-videos>
-
-    <app-cat-videos [videoList]="videoList2" [categoryName]="categoryName2"></app-cat-videos>
 </div>

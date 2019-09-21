@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RestService} from '../../service/rest-service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {VideoService} from '../../service/video/video.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -13,102 +14,35 @@ export class MainComponent implements OnInit {
     videoList2: any;
     categoryName2: any;
 
-  constructor(private restService: RestService, private http: HttpClient) { }
+
+    mainDatas: any = [];
+
+  constructor(private restService: RestService, private http: HttpClient, private videoService: VideoService) { }
 
   ngOnInit() {
-      this.categoryName1 = 'TWICE';
-      this.videoList1 = [
-        {
-            thumbnailUrl : '../../../assets/img/thumbnail.png'
-            , title : '사나는 여신이야'
-            , userId : '김사나'
-            , views : '20만회'
 
-        },
-        {
-            thumbnailUrl : '../../../assets/img/thumbnail.png'
-            , title : '사나는 여신이야'
-            , userId : '김사나'
-            , views : '20만회'
-
-        },
-        {
-            thumbnailUrl : '../../../assets/img/thumbnail.png'
-            , title : '사나는 여신이야'
-            , userId : '김사나'
-            , views : '20만회'
-
-        },
-        {
-            thumbnailUrl : '../../../assets/img/thumbnail.png'
-            , title : '사나는 여신이야'
-            , userId : '김사나'
-            , views : '20만회'
-
-        },
-        {
-            thumbnailUrl : '../../../assets/img/thumbnail.png'
-            , title : '사나는 여신이야'
-            , userId : '김사나'
-            , views : '20만회'
-
-        },
-        {
-            thumbnailUrl : '../../../assets/img/thumbnail.png'
-            , title : '사나는 여신이야'
-            , userId : '김사나'
-            , views : '20만회'
-
-        }
-    ];
-      this.categoryName2 = '장만월';
-      this.videoList2 = [
-          {
-              thumbnailUrl : '../../../assets/img/iu.png'
-              , title : '장만월 예뻐요'
-              , userId : '구찬성'
-              , views : '11만회'
-
-          },
-          {
-              thumbnailUrl : '../../../assets/img/iu.png'
-              , title : '장만월 예뻐요'
-              , userId : '구찬성'
-              , views : '11만회'
-
-          },
-          {
-              thumbnailUrl : '../../../assets/img/iu.png'
-              , title : '장만월 예뻐요'
-              , userId : '구찬성'
-              , views : '11만회'
-
-          },
-          {
-              thumbnailUrl : '../../../assets/img/iu.png'
-              , title : '장만월 예뻐요'
-              , userId : '구찬성'
-              , views : '11만회'
-
-          },
-          {
-              thumbnailUrl : '../../../assets/img/iu.png'
-              , title : '장만월 예뻐요'
-              , userId : '구찬성'
-              , views : '11만회'
-
-          },
-          {
-              thumbnailUrl : '../../../assets/img/iu.png'
-              , title : '장만월 예뻐요'
-              , userId : '구찬성'
-              , views : '11만회'
-
-          }
-      ];
+      this.getVideosByCategory();
   }
 
+    // 카테고리별 비디오 목록 조회
+    getVideosByCategory(): void {
+        this.videoService.getCategorys().subscribe(response => {
+            let categorys = response;
+            for(let i in categorys) {
+                let data = {
+                    catTitle : categorys[i].title
+                    , videos : []
+                };
 
+                this.videoService.getVideosByCategory(categorys[i].catId).subscribe(videos => {
+                    data.videos = videos;
+                    this.mainDatas.push(data);
+                    console.log(this.mainDatas);
+                });
+            }
+        });
+
+    }
 
 
 }

@@ -22,6 +22,7 @@ import { VideoUploadCompletedComponent } from './page/video/video-upload-complet
 import { CatVideosComponent } from './component/cat-videos/cat-videos.component';
 import { MyaccountComponent } from './page/admin/myaccount/myaccount.component';
 import { MyVideoComponent } from './page/admin/my-video/my-video.component';
+import { CategoryVideosComponent } from './page/category-videos/category-videos.component';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAQoyIbH0kevq3bVEvIwhYQaKMbj2B1WWA',
@@ -48,7 +49,8 @@ const firebaseConfig = {
         VideoUploadCompletedComponent,
         CatVideosComponent,
         MyaccountComponent,
-        MyVideoComponent
+        MyVideoComponent,
+        CategoryVideosComponent
     ],
     imports: [
         BrowserModule

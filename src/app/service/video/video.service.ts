@@ -20,7 +20,7 @@ export class VideoService {
         return this.restService.getData('/videos/get/' + id);
     }
 
-    getMyVideos(userId: String): Observable<Video> {
+    getMyVideos(userId: string): Observable<Video> {
       return this.restService.getData('/videos/my/' + userId);
     }
 
@@ -39,4 +39,11 @@ export class VideoService {
     updateVideoLiked(liked: string): Observable<string> {
       return this.restService.postData('/videos/liked', liked);
     }
+    getCategorys(): any {
+      return this.restService.getData('/categorys');
+    }
+    getVideosByCategory(catId: string): any {
+      return this.restService.getData('/videos/category/' + catId);
+    }
+
 }

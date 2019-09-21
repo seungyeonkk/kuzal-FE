@@ -7,6 +7,7 @@ import { VideoUploadComponent } from './page/video/upload/video-upload/video-upl
 import {VideoUploadCompletedComponent} from './page/video/video-upload-completed/video-upload-completed.component';
 import {MyaccountComponent} from './page/admin/myaccount/myaccount.component';
 import { MyVideoComponent } from './page/admin/my-video/my-video.component';
+import {CategoryVideosComponent} from './page/category-videos/category-videos.component';
 
 const appRoutes: Routes = [
     {path: '', component: MainComponent},
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
     {path: 'upload', component: VideoUploadComponent},
     {path: 'uploadCompleted', component: VideoUploadCompletedComponent},
     {path: 'my-account', component: MyaccountComponent},
-    {path: 'my-video', component: MyVideoComponent}
+    {path: 'my-video', component: MyVideoComponent},
+    {path: 'category/:id', component: CategoryVideosComponent}
 ];
 
 @NgModule({

@@ -15,8 +15,8 @@ export class CatVideosComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('video list ', this.videoList);
-        console.log('category name ', this.categoryName);
+      //  console.log('video list ', this.videoList);
+      //  console.log('category name ', this.categoryName);
 
     }
 
