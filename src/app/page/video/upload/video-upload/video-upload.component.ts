@@ -26,7 +26,7 @@ export class VideoUploadComponent{
       , catId: 'cat01'
       , userId: 'test123'
       , videoFile: null
-      , thumnailFile: null
+      , thumbnailFile: null
       , regDate: '2019-08-18'
   };
   
@@ -51,16 +51,16 @@ export class VideoUploadComponent{
       }
   }
 
-  onThumnailFileChange(files: FileList) {
+  onThumbnailFileChange(files: FileList) {
       if (files && files.length > 0) {
-          this.video.thumnailFile = files[0];
+          this.video.thumbnailFile = files[0];
           const reader = new FileReader();
 
       /* 브라우저는 보안 문제로 인해 파일 경로의 참조를 허용하지 않는다.
         따라서 파일 경로를 img 태그에 바인딩할 수 없다.
         FileReader.readAsDataURL 메소드를 사용하여 이미지 파일을 읽어
         base64 인코딩된 스트링 데이터를 취득한 후, img 태그에 바인딩한다. */
-      reader.readAsDataURL(this.video.thumnailFile);
+      reader.readAsDataURL(this.video.thumbnailFile);
       reader.onload = () => {
         //this.imageSrc = reader.result;
       };
@@ -77,7 +77,7 @@ export class VideoUploadComponent{
     formData.append('regDate', this.video.regDate);
     formData.append('description', this.video.description);
     formData.append('videoFile', this.video.videoFile);
-    formData.append('thumnailFile', this.video.thumnailFile);
+    formData.append('thumbnailFile', this.video.thumbnailFile);
     formData.append('catId', this.video.catId);
     console.log(this.video);
     this.spinner.show();
