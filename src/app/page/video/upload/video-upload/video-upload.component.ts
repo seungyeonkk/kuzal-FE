@@ -23,6 +23,7 @@ export class VideoUploadComponent{
   video: any = {
       title: ''
       , description: ''
+      , catId: 'cat01'
       , userId: 'test123'
       , videoFile: null
       , thumnailFile: null
@@ -77,6 +78,7 @@ export class VideoUploadComponent{
     formData.append('description', this.video.description);
     formData.append('videoFile', this.video.videoFile);
     formData.append('thumnailFile', this.video.thumnailFile);
+    formData.append('catId', this.video.catId);
     console.log(this.video);
     this.spinner.show();
     this.restService.postDataByFile('/videos/upload', formData).subscribe(res => {

@@ -20,6 +20,10 @@ export class VideoService {
         return this.restService.getData('/videos/get/' + id);
     }
 
+    getMyVideos(userId: String): Observable<Video> {
+      return this.restService.getData('/videos/my/' + userId);
+    }
+
     updateVideo(video: string): Observable<string> {
         return this.restService.postData('/videos/update', video);
     }

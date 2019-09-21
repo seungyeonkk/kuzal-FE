@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
+import { VideoService } from 'src/app/service/video/video.service';
 
 @Component({
   selector: 'app-my-video',
@@ -6,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-video.component.css']
 })
 export class MyVideoComponent implements OnInit {
-
+  userId: String;
   videoList1: any;
   categoryName1: any;
-  constructor() { }
+  constructor(private videoService: VideoService, private authServie: AuthService) { }
 
   ngOnInit() {
+    this.userId = this.authServie.user.email;
+    this.videoService.getMyVideos(this.userId).subscribe(video => {
+      console.log(video);
+    });
     this.categoryName1 = 'TWICE';
       this.videoList1 = [
         {
