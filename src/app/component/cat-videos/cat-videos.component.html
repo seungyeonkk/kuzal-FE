@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-2 video-card" *ngFor="let video of videoList" (click)="goVideoDetail()">
+    <div class="col-md-2 video-card" *ngFor="let video of videoList" (click)="goVideoDetail(video)">
         <div class="img-wrapper">
             <img [src]="video.thumbnailUrl" class="thumbnail">
         </div>

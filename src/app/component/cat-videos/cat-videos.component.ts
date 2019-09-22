@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-cat-videos',
@@ -11,7 +12,7 @@ export class CatVideosComponent implements OnInit {
     @Input() categoryName: string; // 카테고리 명
 
 
-    constructor() {
+    constructor(private router: Router, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -21,7 +22,9 @@ export class CatVideosComponent implements OnInit {
     }
 
     // video 상세화면 이동
-    goVideoDetail(): void {
+    goVideoDetail(data): void {
+        console.log("test", data);
+        this.router.navigate(['videos/get/' + data._id], { relativeTo: this.route });
 
     }
 

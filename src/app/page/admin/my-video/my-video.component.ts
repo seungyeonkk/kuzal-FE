@@ -8,7 +8,7 @@ import { VideoService } from 'src/app/service/video/video.service';
   styleUrls: ['./my-video.component.css']
 })
 export class MyVideoComponent implements OnInit {
-  userId: String;
+  userId: string;
   videoList: any;
   categoryName1: any;
   constructor(private videoService: VideoService, private authServie: AuthService) { }
